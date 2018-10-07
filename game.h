@@ -25,7 +25,7 @@ public:
     return old_id;
   }
 
-  int old_id = 0;
+  static int sm_old_id = 0;
 
 private:
 
