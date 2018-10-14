@@ -20,11 +20,11 @@ public:
   void change_score_by(int delta_score);
 
   int new_id() {
-    ++old_id;
-    return old_id;
+    ++sm_old_id;
+    return sm_old_id;
   }
 
-  int old_id = 0;
+  static int sm_old_id = 0;
 
 private:
   /// Timer, physics, bullets moving, etc.
