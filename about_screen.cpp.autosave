@@ -47,7 +47,7 @@ void about_screen::displayabout()
     font.loadFromFile("OpenSans.ttf");
     aboutwindow.clear(sf::Color::White);//Clear the window with black color
     about_screen::abouttext.setFont(font);
-    about_screen::abouttext.setString("This game was developed by...\r\nIt is about..");
+    about_screen::abouttext.setString("This game was developed by Octane\r\nIt is about..");
     about_screen::abouttext.setCharacterSize(24); // in pixels, not points!
 
     // set the color
