@@ -11,5 +11,6 @@
         <file>resources/crocodile.png</file>
         <file>resources/zen_font.ttf</file>
         <file>resources/title_screen_background.jpg</file>
+        <file>resources/game_over_background.jpg</file>
     </qresource>
 </RCC>

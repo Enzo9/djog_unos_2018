@@ -19,6 +19,17 @@ sfml_resources::sfml_resources() { //!OCLINT must be shorter
       throw std::runtime_error("Cannot find music file 'background_music.ogg'");
     }
   }
+    // Background screen
+    {
+      // Re-create resource at executable's location
+      QFile f(":/nature_zen/resources/game_over_background.jpg");
+      f.copy("game_over_background.jpg");
+      if (!m_game_over_background.openFromFile("game_over_background.jpg")) {
+        throw std::runtime_error("Cannot find music file 'game_over_background.jpg'");
+      }
+    }
+
+
   {
     // Re-create resource at executable's location
     QFile f(":/nature_zen/resources/title_music.ogg");

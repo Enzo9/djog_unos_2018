@@ -33,6 +33,8 @@ public:
 
   sf::Texture& get_background_image() noexcept { return m_background_image; }
 
+  sf::Texture& get_game_over_background() noexcept { return m_game_over_background; }
+
 private:
   /// Do not construct a sfml_resources,
   /// use sfml_resources::get() instead
@@ -59,6 +61,8 @@ private:
   sf::Texture m_bacterie_texture;
 
   sf::Texture m_background_image;
+
+  sf::Texture m_game_over_background;
 };
 
 /// Test the sfml_resources class

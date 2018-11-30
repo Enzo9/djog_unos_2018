@@ -10,6 +10,7 @@ SOURCES += \
     $$PWD/sfml_about_screen.cpp \
     $$PWD/game_state.cpp \
     $$PWD/id.cpp \
+    $$PWD/sfml_game_over_screen.cpp \
     $$PWD/sfml_menu_screen.cpp \
     $$PWD/sfml_title_screen.cpp \
     $$PWD/sfml_camera.cpp
@@ -26,6 +27,7 @@ HEADERS += \
     $$PWD/sfml_about_screen.h \
     $$PWD/game_state.h \
     $$PWD/id.h \
+    $$PWD/sfml_game_over_screen.h \
     $$PWD/sfml_menu_screen.h \
     $$PWD/sfml_title_screen.h \
     $$PWD/sfml_camera.h

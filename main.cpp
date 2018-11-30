@@ -10,6 +10,7 @@
 #include <QFile>
 #include <SFML/Graphics.hpp>
 #include <cassert>
+#include "sfml_game_over_screen.h"
 
 /// Nature Zen
 /// @param argc the number of arguments Nature Zen's executable is called
@@ -19,6 +20,7 @@
 ///   * '--short': only run for 10 seconds
 ///   * '--menu': show the menu
 ///   * '--about': access about screen
+///   * '--about': access game over screen
 /// @param argv the arguments (as words) Nature Zen's executable is called
 ///   with by the operating system
 
@@ -44,6 +46,12 @@ int show_sfml_about_screen() {
     as.exec();
     return 0;
 }
+int show_sfml_game_over_screen() {
+    sfml_game_over_screen as;
+    as.exec();
+    return 0;
+}
+
 int main(int argc, char **argv)
 {
 #ifndef NDEBUG
@@ -68,6 +76,10 @@ int main(int argc, char **argv)
   if (std::count(std::begin(args), std::end(args), "--about"))
   {
     return show_sfml_about_screen();
+  }
+  if (std::count(std::begin(args), std::end(args), "--game_over"))
+  {
+    return show_sfml_game_over_screen();
   }
 
   int close_at{-1};
