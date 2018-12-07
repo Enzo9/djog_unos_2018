@@ -211,12 +211,12 @@ void tile::add_agent(agent a) { m_agents.push_back(a); }
 
 void tile::set_id(int id) { m_id = id; }
 
-bool tile::tile_contains(double x, double y) const noexcept {
-  return x > m_x - 5 && x < m_x + m_width + 5 && y > m_y - 5 &&
-         y < m_y + m_height + 5;
-}
-
 void tile::lock_movement(bool b) { m_locked = b; }
+
+bool tile_contains(double x, double y, tile t) noexcept {
+  return x > t.get_dx() - 5 && x < t.get_dx() + t.get_width() + 5 && y > t.get_dy() - 5 &&
+         y < t.get_dy() + t.get_height() + 5;
+}
 
 void test_tile() //!OCLINT testing function may be many lines
 {
@@ -275,8 +275,6 @@ void test_tile() //!OCLINT testing function may be many lines
   }
 #endif // FIX_ISSUE_87_SET_TILE_SPEED
 
-#define FIX_ISSUE_116_TILE_CONTAINS
-#ifdef FIX_ISSUE_116_TILE_CONTAINS
   //
   //
   //   (0,0)------(100,0)
@@ -288,10 +286,9 @@ void test_tile() //!OCLINT testing function may be many lines
   //           C           D
   {
     const tile t(0.0, 0.0, 0.0, 1, 1, tile_type::grassland, 0);
-    assert(t.tile_contains(50, 50));   // A
-    assert(!t.tile_contains(165, 50));  // B
-    assert(!t.tile_contains(50, 165)); // C
-    assert(!t.tile_contains(165, 165)); // D
+    assert(tile_contains(50, 50, t));   // A
+    assert(!tile_contains(165, 50, t));  // B
+    assert(!tile_contains(50, 165, t)); // C
+    assert(!tile_contains(165, 165, t)); // D
   }
-#endif // FIX_ISSUE_116_TILE_CONTAINS
 }

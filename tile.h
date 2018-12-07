@@ -75,9 +75,6 @@ public:
 
   void set_id(int tid);
 
-  /// Is this coordinate within the tile?
-  bool tile_contains(double x, double y) const noexcept;
-
   void lock_movement(bool b);
 
   bool get_m_locked() const noexcept { return m_locked; }
@@ -142,6 +139,9 @@ std::ostream& operator<<(std::ostream& os, const tile& t);
 std::istream& operator>>(std::istream& os, tile& t);
 
 bool operator==(const tile& lhs, const tile& rhs) noexcept;
+
+/// Is this coordinate within the tile?
+bool tile_contains(double x, double y) noexcept;
 
 /// Test the tile class
 void test_tile();
