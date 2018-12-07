@@ -213,7 +213,7 @@ void tile::set_id(int id) { m_id = id; }
 
 void tile::lock_movement(bool b) { m_locked = b; }
 
-bool tile_contains(double x, double y, tile t) noexcept {
+bool tile_contains(double x, double y, const tile &t) noexcept {
   return x > t.get_dx() - 5 && x < t.get_dx() + t.get_width() + 5 && y > t.get_dy() - 5 &&
          y < t.get_dy() + t.get_height() + 5;
 }

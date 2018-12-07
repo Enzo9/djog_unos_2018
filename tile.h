@@ -141,7 +141,7 @@ std::istream& operator>>(std::istream& os, tile& t);
 bool operator==(const tile& lhs, const tile& rhs) noexcept;
 
 /// Is this coordinate within the tile?
-bool tile_contains(double x, double y) noexcept;
+bool tile_contains(double x, double y, const tile &t) noexcept;
 
 /// Test the tile class
 void test_tile();

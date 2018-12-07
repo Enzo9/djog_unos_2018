@@ -354,9 +354,10 @@ void sfml_game::process_mouse_input(const sf::Event& event)
     std::vector<tile> game_tiles = m_game.get_tiles();
     for (unsigned i = 0; i < game_tiles.size(); i++)
     {
-      if (game_tiles.at(i).tile_contains(
+      if (tile_contains(
             sf::Mouse::getPosition(m_window).x + m_camera.x,
-            sf::Mouse::getPosition(m_window).y + m_camera.y))
+            sf::Mouse::getPosition(m_window).y + m_camera.y,
+            game_tiles.at(i)))
       {
         m_temp_id.clear();
         m_temp_id.push_back(game_tiles.at(i).get_id());
@@ -627,7 +628,7 @@ bool sfml_game::check_collision(double x, double y)
     // |   B |
     // |_____|
     //
-    if (t.tile_contains(x + 15, y + 15) || t.tile_contains(x - 15, y - 15))
+    if (tile_contains(x + 15, y + 15, t) || tile_contains(x - 15, y - 15, t))
     {
       return true;
     }
@@ -639,7 +640,7 @@ std::vector<int> sfml_game::get_collision_id(double x, double y) const
 {
   for (const tile& t : m_game.get_tiles())
   {
-    if (t.tile_contains(x, y))
+    if (tile_contains(x, y, t))
     {
       return { t.get_id() };
     }
